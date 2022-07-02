@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/heozeop/heozeop.github.io.git
+	branch = publish
