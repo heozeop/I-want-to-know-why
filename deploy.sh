@@ -34,4 +34,4 @@ if [ $# -eq 1 ]
 fi
 git commit -m "$msg"
 
-git push origin publish
+git push origin main
