@@ -6,7 +6,6 @@ draft: false
 
 categories:
 - opensource
-- experience
 tags:
 - experience
 - work
