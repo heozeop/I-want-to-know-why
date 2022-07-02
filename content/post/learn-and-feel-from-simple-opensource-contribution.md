@@ -4,19 +4,19 @@ date: '2021-08-10T21:16:03.284Z'
 description: 'DefinitelyTyped에 라이브러리 타입을 올려보고, chakra ui에 pr을 올리며(아직 진행 중) 느낀점을 간단히 소개합니다.'
 draft: false
 
-draft: false
-
 categories:
-- web
-    - css
+- opensource
 tags:
-- definition
-- css
+- experience
+- TypeScript
 - front-end
 - web
 keywords:
-- css
-- definition
+- chakra-ui
+- DefinitelyTyped
+- \@moxy/next-router-scroll
+- TypeScript
+- opensource
 ---
 
 # TL;DR

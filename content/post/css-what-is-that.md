@@ -5,8 +5,7 @@ description: 'css의 정의를 알아봅니다.'
 draft: false
 
 categories:
-- web
-    - css
+- css
 tags:
 - definition
 - css

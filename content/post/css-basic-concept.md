@@ -6,8 +6,7 @@ description: 'CSS 규칙 충돌에 대비해서 Inheritance, Specificity, Cascad
 draft: false
 
 categories:
-- web
-    - css
+- css
 tags:
 - concept
 - css
