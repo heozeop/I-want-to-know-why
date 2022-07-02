@@ -4,17 +4,19 @@ date: '2021-08-10T21:16:03.284Z'
 description: 'DefinitelyTyped에 라이브러리 타입을 올려보고, chakra ui에 pr을 올리며(아직 진행 중) 느낀점을 간단히 소개합니다.'
 draft: false
 
+draft: false
+
 categories:
-- opensource
+- web
+    - css
 tags:
-- experience
-- work
+- definition
+- css
 - front-end
-- TypeScript
+- web
 keywords:
-- chakra-ui
-- DefinitelyTyped
-- \@moxy/next-router-scroll
+- css
+- definition
 ---
 
 # TL;DR
@@ -24,7 +26,7 @@ keywords:
 1. chakra ui를 사용하며, 필요를 느낀 컴포넌트를 만들었습니다.
 1. 재미있었고, 공부가 많이 되었습니다.
 
-# 어쩌다...
+## 계기
 
 다음 두가지 상황에서 각각 definitly typed 프로젝트와 chakra ui 프로젝트에 PR을 올리게 되었습니다.
 
@@ -35,7 +37,7 @@ keywords:
 
 scroll restoration과 관련하여, 모바일에서 계속 오류가 나는 상황이 있었습니다. 이 버그는 사용환경인 모바일에서 신경이 안쓰이진 않을 정도로 '가끔' 일어났기 때문에 수정이 어려웠습니다.
 
-그렇게 시간이 조금 흐르고, CTO께서 라이브러리 하나를 소개시켜 주셨습니다. 해당 라이브러리는 [@moxy/next-router-scroll](https://www.npmjs.com/package/@moxy/next-router-scroll)이라는 라이브러리로, 굉장히 가볍고, 코드 또한 간단한 라이브러리였습니다.
+그렇게 시간이 조금 흐르고, CTO께서 라이브러리 하나를 소개시켜 주셨습니다. 해당 라이브러리는 [@moxy/next-router-scroll](https://www.npmjs.com/package/@moxy/next-router-scroll)이라는 라이브러리로, 굉장히 가볍고, 간단한 라이브러리입니다.
 
 저는 위 라이브러리를 사용해 구현 후, 실험을 반복하여 제대로 작동하는 것을 확인하였습니다. 다만, 이 라이브러리에는 타입 정의 파일이 없어 직접 등록하거나 만들어 주기를 기다려야 했습니다. 꽤나 시간이 지체된 오류라서, 일단 적용 후 패치하기로 합의하였습니다. 그래서 일단 해당 라이브러리 레포에 issue를 등록하였습니다.
 
