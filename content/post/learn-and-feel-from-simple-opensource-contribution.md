@@ -5,9 +5,9 @@ description: 'DefinitelyTyped에 라이브러리 타입을 올려보고, chakra 
 draft: false
 
 categories:
-- opensource
-tags:
 - experience
+tags:
+- opensource
 - TypeScript
 - front-end
 - web
