@@ -1,5 +1,5 @@
 ---
-title: [OS] 운영체제란?
+title: "[OS] 운영체제란?"
 date: 2022-07-03T21:17:44+09:00
 description: 운영체제의 정의와 역할을 알아봅니다.
 draft: false

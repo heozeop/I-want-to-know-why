@@ -1,5 +1,5 @@
 ---
-title: [경험] 오픈소스에 PR 해본 썰
+title: "[경험] 오픈소스에 PR 해본 썰"
 date: '2021-08-10T21:16:03.284Z'
 description: 'DefinitelyTyped에 라이브러리 타입을 올려보고, chakra ui에 pr을 올리며(아직 진행 중) 느낀점을 간단히 소개합니다.'
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: [CSS] CSS? 그게 뭔데?
+title: "[CSS] CSS? 그게 뭔데?"
 date: '2021-01-03T23:01:03.284Z'
 description: 'css의 정의를 알아봅니다.'
 draft: false

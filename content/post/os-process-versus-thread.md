@@ -1,5 +1,5 @@
 ---
-title: [OS] 프로세스 VS 스레드
+title: "[OS] 프로세스 VS 스레드"
 date: 2022-07-05T20:56:43+09:00
 draft: true
 
