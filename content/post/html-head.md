@@ -1,5 +1,5 @@
 ---
-title: HTML head? 뭐더라...?
+title: [HTML] HTML head? 뭐더라...?
 date: '2021-01-01T15:24:03.284Z'
 description: 'HTML head태그를 알자.'
 

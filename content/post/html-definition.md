@@ -1,5 +1,5 @@
 ---
-title: HTML? 설명해보자.
+title: [HTML] HTML? 설명해보자.
 date: '2020-12-30T22:12:03.284Z'
 description: 'html의 정의와 기본 속성.'
 draft: false
