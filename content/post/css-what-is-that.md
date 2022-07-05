@@ -1,5 +1,5 @@
 ---
-title: CSS? 그게 뭔데?
+title: [CSS] CSS? 그게 뭔데?
 date: '2021-01-03T23:01:03.284Z'
 description: 'css의 정의를 알아봅니다.'
 draft: false
@@ -89,7 +89,3 @@ selector {
   property: value
 }
 ```
-
-# 다음은?
-### 1. CSS의 박스모델을 설명할 수 있다.
-### 2. CSS의 레이아웃을 설명할 수 있다.

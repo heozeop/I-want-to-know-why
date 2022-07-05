@@ -1,5 +1,5 @@
 ---
-title: CSS 기본 컨셉과 규칙 충돌
+title: [CSS] CSS 기본 컨셉과 규칙 충돌
 date: '2021-01-04T18:01:03.284Z'
 description: 'CSS 규칙 충돌에 대비해서 Inheritance, Specificity, Cascading을 알아봅니다.'
 
@@ -157,7 +157,3 @@ p {
 ### 1. CSS Inheritance, Cascading의 정의를 설명할 수 있다.
 ### 2. CSS Inheritance, Cascading의 적용 과정을 설명할 수 있다.
 ### 3. CSS의 규칙 충돌을 설명할 수 있다.
-
-# 다음은?
-### 1. CSS의 박스모델을 설명할 수 있다.
-### 2. CSS의 레이아웃을 설명할 수 있다.
