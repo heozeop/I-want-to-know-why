@@ -1,7 +1,7 @@
 ---
 title: [OS] 운영체제 모드
 date: 2022-07-05T20:31:56+09:00
-draft: true
+draft: false
 
 categories:
 - os
