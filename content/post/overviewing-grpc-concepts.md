@@ -27,7 +27,7 @@ Remote Procedure Call의 약자로, 외부 procedure를 실행하는 것
 
 grpc가 http2를 쓴댜 
 
-→ UDP를 4계층으로 쓰고, 그 위에서 돌아가는 걸거여 
+→ TCP를 4계층으로 쓰고, 그 위에서 돌아가는 걸거여 
 
 → 그럼 application 계층인건가
 
