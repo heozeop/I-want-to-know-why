@@ -1,7 +1,7 @@
 ---
 title: "의식적으로 쓰기 - 선언과 단언"
 date: 2022-10-19T22:31:04+09:00
-draft: true
+draft: false
 
 
 categories:
