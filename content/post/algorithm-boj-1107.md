@@ -1,5 +1,5 @@
 ---
-title: "Algorithm Boj 1107"
+title: "[알고리즘] Algorithm Boj 1107"
 date: 2023-05-26T05:12:05+09:00
 draft: false
 
