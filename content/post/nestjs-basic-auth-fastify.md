@@ -24,7 +24,7 @@ keywords:
 
 # basic auth?
 ## 정의
-[wikipedia](https://en.wikipedia.org/wiki/Basic_access_authentication)에 따르면, basic auth는 HTTP 1.0이 발표된 1996년에 정의된 방식으로, 아이디와 패스워드를 브라우저에서 받아 로그인을 처리하는 방식입니다. 아이디와 패스워드는 `:`으로 조인 된 뒤, Base64로 암호화 돼 `WWW-Authenticate` 헤더에 포함되어 쿼리 됩니다. 해시등 추가적인 암호화는 없기 때문에 보안을 위해서 https와 함께 쓰이는게 권장된다고 합니다.
+[wikipedia](https://en.wikipedia.org/wiki/Basic_access_authentication)에 따르면, basic auth는 HTTP 1.0이 발표된 1996년에 정의된 방식으로, 아이디와 패스워드를 브라우저에서 받아 로그인을 처리하는 방식입니다. 아이디와 패스워드는 `:`으로 조인 된 뒤, Base64로 암호화 돼 `Authorization` 헤더에 포함되어 쿼리 됩니다. 해시등 추가적인 암호화는 없기 때문에 보안을 위해서 https와 함께 쓰이는게 권장된다고 합니다.
 
 # nest swagger에서
 ## basic auth
