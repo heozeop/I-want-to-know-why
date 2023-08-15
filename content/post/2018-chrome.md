@@ -1,7 +1,7 @@
 ---
 title: "2018 chrome browser 동작 글 읽고"
 date: 2023-08-15T20:58:14+09:00
-draft: false
+draft: true
 
 categories:
 - web
