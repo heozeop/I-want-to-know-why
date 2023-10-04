@@ -1,7 +1,7 @@
 ---
 title: "디테일을 챙기는 개발자가 되고 싶어 하는 고찰"
 date: 2023-10-05T07:19:49+09:00
-draft: true
+draft: false
 
 categories:
 - thought
