@@ -1,7 +1,10 @@
 ---
 title: "Boj 2661"
 date: 2023-10-05T18:31:38+09:00
-draft: true
+draft: false
+
+categories:
+- algorithm
 ---
 
 # 주요 로직을 생각해 보자.
