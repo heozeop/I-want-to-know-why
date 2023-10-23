@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 2667"
 date: 2023-10-23T20:59:09+09:00
-draft: true
+draft: false
 
 categories:
 - algorithm
@@ -21,7 +21,8 @@ categories:
     - 집수 list에 저장한다.
 - 집수 list를 정렬한다.
 - 집수를 출력한다.
----
+
+### 구현
 ```python3
 
 TARGET = '1'
