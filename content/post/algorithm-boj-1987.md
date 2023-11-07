@@ -26,5 +26,49 @@ categories:
     1. n,m
     1. board
 - 시간 복잡도
-    1. ON^2
+    1. O(n^2 * 4 * n^2)
 
+---
+- 실패한 원인
+    1. in으로 확인하는데 시간이 오래 걸린다.
+    1. dp처럼 풀려고 했다.
+- 코드
+```python3
+n,m = list(map(int, input().split()))
+
+board = []
+for _ in range(n):
+    board.append(list(input()))
+directions = [
+    [0,1],[0,-1],[1,0],[-1,0]
+]
+
+check = [0]* 26
+
+max_value = 0
+check[ord(board[0][0]) - 65] = 1
+
+
+def backtrack(x,y,count):
+    global n,m,board,max_value
+    
+    for i in range(4):
+        nx = x + directions[i][0]
+        ny = y + directions[i][1]
+        
+        if nx < 0 or ny < 0 or nx >= n or ny >= m:
+            continue
+        
+        if check[ord(board[nx][ny]) - 65] == 1:
+            continue
+        
+        check[ord(board[nx][ny]) - 65] = 1
+        backtrack(nx,ny,count + 1)
+        check[ord(board[nx][ny]) - 65] = 0
+        
+    max_value = max(max_value, count)
+    
+backtrack(0,0,1)
+print(max_value)
+        
+```
