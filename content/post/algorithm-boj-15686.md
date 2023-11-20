@@ -12,7 +12,7 @@ categories:
 1. 백트랙을 이용해 M개 집 치킨거리를 구한다.
 
 ## 구현
-```python3
+```python
 n, m = list(map(int, input().split()))
 
 city = []

@@ -39,7 +39,7 @@ categories:
     1. 1 - 4 반복
 
 - 코드
-    ```python3
+    ```python
     INF = 1e9
     ate_count = 0
     shark_size = 2

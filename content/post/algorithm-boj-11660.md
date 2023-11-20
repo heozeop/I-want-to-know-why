@@ -20,7 +20,7 @@ categories:
     - 변수
         - n, m, table_map, sum_map
 - 코드
-```python3
+```python
 import sys
 input = sys.stdin.readline
 

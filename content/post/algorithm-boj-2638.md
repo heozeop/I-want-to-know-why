@@ -33,7 +33,7 @@ categories:
     1. => N^3
 --- 
 1. 코드
-    ```python3
+    ```python
     from collections import deque
 
     n, m = list(map(int, input().split()))

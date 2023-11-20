@@ -16,7 +16,7 @@ categories:
 - 가장 먼저 N,M 도착하면 출력하기
 - n^2
 - 구현
-    ```python3
+    ```python
     from collections import deque
 
     directions = [

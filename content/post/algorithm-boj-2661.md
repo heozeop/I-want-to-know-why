@@ -11,7 +11,7 @@ categories:
 - 끝에 하나 붙을때 마다 점검해준다.
 
 # 코드
-```python3
+```python
 n = int(input())
 s=[]
 

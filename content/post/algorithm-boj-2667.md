@@ -23,7 +23,7 @@ categories:
 - 집수를 출력한다.
 
 ### 구현
-```python3
+```python
 
 TARGET = '1'
 VISITED = -1

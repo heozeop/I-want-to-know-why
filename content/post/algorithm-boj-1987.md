@@ -34,7 +34,7 @@ categories:
     1. in으로 확인하는데 시간이 오래 걸린다.
     1. dp처럼 풀려고 했다.
 - 코드
-```python3
+```python
 n,m = list(map(int, input().split()))
 
 board = []

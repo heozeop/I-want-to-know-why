@@ -21,7 +21,7 @@ categories:
 - (n * m)C3 * (n * m) => 약 266만
 
 - 구현
-    ```python3
+    ```python
     directions = [
         [0,1],
         [0,-1],

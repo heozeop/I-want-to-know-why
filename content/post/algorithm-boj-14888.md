@@ -17,7 +17,7 @@ categories:
 - 음수가 -10억까지 되는데 범위를 잘못 찍었다.
 
 ## code
- ```python3
+ ```python
  n = int(input())
 nums = list(map(int, input().split()))
 ops = list(map(int,input().split()))

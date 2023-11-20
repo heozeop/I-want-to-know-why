@@ -31,7 +31,7 @@ categories:
     1. 사이클, 도달할 수 없는 경우가 있음
         - 1에서 부터 후위 순회로 풀어야 했음
 - 답 보고 푼 풀이
-```python3
+```python
 import sys
 
 sys.setrecursionlimit(10**8)
