@@ -1,7 +1,7 @@
 ---
 title: "Boj 14888"
 date: 2023-10-06T19:53:38+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

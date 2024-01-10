@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 1463"
 date: 2023-11-14T18:29:54+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

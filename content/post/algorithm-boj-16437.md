@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 16437"
 date: 2023-11-08T08:27:40+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

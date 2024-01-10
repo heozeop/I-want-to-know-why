@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 2146"
 date: 2023-10-26T20:23:08+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

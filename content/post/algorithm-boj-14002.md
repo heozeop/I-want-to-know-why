@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 14002"
 date: 2023-11-19T21:09:20+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

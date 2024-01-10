@@ -1,7 +1,7 @@
 ---
 title: "아는 척에 대한 고찰"
 date: 2023-12-13T23:10:32+09:00
-draft: false
+draft: true
 
 categories:
 - thought

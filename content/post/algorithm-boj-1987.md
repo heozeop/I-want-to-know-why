@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 1987"
 date: 2023-11-07T21:23:34+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

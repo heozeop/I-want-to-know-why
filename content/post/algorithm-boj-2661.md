@@ -1,7 +1,7 @@
 ---
 title: "Boj 2661"
 date: 2023-10-05T18:31:38+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 2638"
 date: 2023-10-29T18:30:34+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm

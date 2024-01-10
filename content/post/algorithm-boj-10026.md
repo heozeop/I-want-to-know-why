@@ -1,7 +1,7 @@
 ---
 title: "Algorithm Boj 10026"
 date: 2023-10-31T08:21:45+09:00
-draft: false
+draft: true
 
 categories:
 - algorithm
