@@ -1,7 +1,7 @@
 ---
 title: "[회고] heic-convert 분석 - NodeJS 라이브러리"
 date: 2024-01-25T18:36:44+09:00
-draft: true
+draft: false
 
 categories:
 - 회고
@@ -32,7 +32,7 @@ HEIF는 HEVC(High Efficiency Video Coding)을 이용해 compression을 하기 �
 이전에 이 방식으로 heic 파일을 변환하고자 많은 시간을 녹였던 기억이 납니다.
 
 이 글은 HEIF 파일을 JPEG로 바꾸어 다루는 아이디어 부터 출발해, 이 아이디어를 구현한 npm 라이브러리인 heic-converter를 분석했던 과정을 회고하는 글입니다.
-도데체 HEIF파일을 어떻게 변환하는지 살펴보고자 분석을 하는 글이니, HEIF에 대한 자세한 설명 등은 [킹무위키](https://namu.wiki/w/HEIF)나 chatgpt등을 참조해 주세요.
+더 자세하게는 libheif.js 파일이 어떻게 생기는지 살펴보고자 분석을 하는 글이니, HEIF에 대한 자세한 설명 등은 [킹무위키](https://namu.wiki/w/HEIF)나 chatgpt등을 참조해 주세요.
 
 
 # 시작은 소스코드에서부터
@@ -68,23 +68,10 @@ module.exports = (decode, encode) => {
       return await convertImage({ image, format, quality });
     }
 
-    const images = await decode.all({ buffer });
-
-    return images.map(image => {
-      return {
-        convert: async () => await convertImage({
-          image: await image.decode(),
-          format,
-          quality
-        })
-      };
-    });
+    // ...
   };
 
-  return {
-    one: async ({ buffer, format, quality = 0.92 }) => await convert({ buffer, format, quality, all: false }),
-    all: async ({ buffer, format, quality = 0.92 }) => await convert({ buffer, format, quality, all: true })
-  };
+  // ...
 };
 ```
 
@@ -221,10 +208,9 @@ const base = `https://github.com/catdad-experiments/libheif-emscripten/releases/
 const tarball = `${base}/libheif.tar.gz`;
 
 // ...
-
 (async () => {
 
-    // ...
+      // ...
 
       for await (const entry of (await getStream(tarball)).pipe(gunzip()).pipe(tar.extract())) {
         const basedir = entry.header.name.split('/')[0];
@@ -238,23 +224,15 @@ const tarball = `${base}/libheif.tar.gz`;
         }
       }
 
-    //...
-await esbuild.build({
-    ...buildOptions,
-    outfile: path.resolve(root, 'libheif-wasm/libheif-bundle.js'),
-    format: 'iife',
-    globalName: 'libheif',
-    footer: {
-      // hack to support a single bundle as a node cjs module
-      // and a browser <script>, similar to the js version libheif
-      js: `
-libheif = libheif.default;
-if (typeof exports === 'object' && typeof module === 'object') {
-  module.exports = libheif;
-}`
-    }
-  });
+      //...
 
+      await esbuild.build({
+        ...buildOptions,
+        outfile: path.resolve(root, 'libheif-wasm/libheif-bundle.js'),
+        format: 'iife',
+        globalName: 'libheif',
+        //...
+      });
 // ...
 })().then(() => {
   console.log(`fetched libheif ${version}`);
@@ -266,14 +244,99 @@ if (typeof exports === 'object' && typeof module === 'object') {
 ```
 
 ### 정리
-libheif를 직접 다운 받아 libheif를 번들링 합니다. libheif/libheif.js는 libheif를 살펴 봐야겠습니다.
+libheif를 직접 다운 받아 libheif를 번들링 합니다. libheif/libheif.js는 `libheif-emscripten`을 살펴 봐야겠습니다.
+
+## libheif-emscripten
+파일이 별게 없군요. githu workflow와 스크립트 파일 정도를 살펴볼 수 있겠습니다.
+
+### dist-prep.sh
+dist로 `libheif.js`를 복사하는 스크립트입니다. 이 스크립트가 시작될때면 `libheif.js`를 가지고 있다는 말이 된다는 이야기네요.
+```sh
+// ...
+
+build_target="$1"
+
+// ...
+
+function copyJs() {
+  cp libheif/libheif.js dist/libheif.js
+  cp libheif/COPYING dist/LICENSE
+
+  assertFile dist/libheif.js
+  assertFile dist/LICENSE
+
+  chown $(whoami) dist/libheif.js dist/LICENSE
+}
+
+// ...
+
+if [ "$build_target" = "js" ]
+then
+  copyJs
+
+// ...
+```
+
+### .github/workflows/emscripten.yml
+아, 드디어 찾았습니다. libheif를 여기서 다운을 받는 군요. 이제 libheif를 살펴보면 될 것 같습니다.
+libheif의 스크립트 중 `install-cli-linux.sh`, `prepare-ci.sh`, `run-ci.sh`를 보면 되겠군요.
+```yml
+
+// ...
+    - name: Install emscripten
+      working-directory: libheif
+      run: |
+        ./scripts/install-ci-linux.sh
+    - name: Prepare CI
+      working-directory: libheif
+      run: |
+        ./scripts/prepare-ci.sh
+    - name: Run build and tests (JS)
+      if: ${{ matrix.target=='js' }}
+      working-directory: libheif
+      run: |
+        ./scripts/run-ci.sh
+// ...
+   - name: Dist prep
+      run: ./dist-prep.sh ${{ matrix.target }}
+
+// ...
+```
+
+### 정리
+libheif의 스크립트를 이용해 libheif.js를 만들어 냅니다.
+
+## libheif
+sh파일은 길기 때문에 제가 읽고 파악한 부분만 서술하겠습니다.
+
+### install-ci-linux.sh
+decoder(libde265), encoder(x265) 등을 다운 받습니다.
+
+### prepare-ci.sh
+flag를 기준으로 포함하는 PKG_CONFIG_PATH를 설정합니다.
+
+### run-ci.sh
+여기서 `build-emscripten.sh`를 호출해 파일을 생성하는 것으로 보입니다.
+[emscripten](https://emscripten.org/)은 LLVM컴파일러의 백엔드로, 소스를 javascript/wasm로 변환하는 프로그램이라고 합니다.
+
+### build-emscripten.sh
+여기서 post.js를 기반으로 한 파일을 만들어 줍니다. 실제로 post.js를 보면 어떻게 사용하고 있는지 볼 수 있습니다.
+
+### 정리
+차례로 dependency를 설치, 설정하고 `build-emscripten.sh`에서 emscripten을 이용해 libheif.js를 생성합니다.
+
+# 정리하기
+## 긴 여정이었습니다.
+지금까지 5개의 레포를 넘어가면서 어떻게 libheif.js 파일이 생성되는지를 알아보았습니다.
+결과적으로 `heic-convert`라이브러리는 libheif.js를 기반으로 돌고 있으며, 이를 이용해 HEIF파일을 다른 형식으로 전환할 수 있다는 것을 알았습니다.
+다른 라이브러리들도 컨셉하나 잡고 파보는 것도 재미있겠다 싶은 기억이었습니다.
 
 # ref
-
 - https://cloudinary.com/guides/image-formats/heif-format-meet-the-the-next-evolution-of-jpeg
 - [킹무위키 HEIF](https://namu.wiki/w/HEIF)
 - [heic-convert](https://github.com/catdad-experiments/heic-convert)
 - [heic-decode](https://github.com/catdad-experiments/heic-decode)
 - [libheif-js](https://github.com/catdad-experiments/libheif-js)
+- [libheif-emscripten](https://github.com/catdad-experiments/libheif-emscripten)
 - [libheif](https://github.com/strukturag/libheif)
-
+- [emscripten](https://ko.wikipedia.org/wiki/Emscripten)
