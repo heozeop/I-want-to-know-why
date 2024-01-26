@@ -25,7 +25,6 @@ keywords:
 커뮤니티를 만들때면 이미지를 입력 받는 경우가 있습니다. 
 이때 애플의 아이폰/아이패드의 경우, 고효율 압축 방식인 HEIF(High Efficiency Image File Format) 방식을 사용합니다. 
 당연하게도, ISO 표준인 JPEG(Joint Photographic Expert Group) 등과는 다른 파일 형식을 가지고 있습니다.
-libheif등의 라이브러리가 등장하는 대목입니다.
 
 만약 node에서 sharp를 이용해 heif로 파일을 처리하고자 한다면 이 과정은 정말 쉽지 않습니다.
 HEIF는 HEVC(High Efficiency Video Coding)을 이용해 compression을 하기 때문에 libde265와 x265 같은 라이브러리가 추가로 필요하기 때문입니다.
@@ -115,8 +114,8 @@ module.exports.PNG = ({ data, width, height }) => {
 ```
 
 ### 정리
-`convert`함수는 하나의 HEIF 포멧 버퍼를 변환하는 함수로, `heic-decode` 라이브러리를 이용해 HEIF 버퍼를 변환한다. 
-그리고 변환한 버퍼를 JPEG나 PNG포멧으로 변경한다.
+`convert`함수는 하나의 HEIF 포멧 버퍼를 변환하는 함수로, `heic-decode` 라이브러리를 이용해 HEIF 버퍼를 변환합니다. 
+그리고 변환한 버퍼를 JPEG나 PNG포멧으로 변경합니다.
 
 ## heic-decode
 그럼 다음으로는 HEIF 버퍼를 실제로 변환하는 `heic-decode`를 까보겠습니다. 
@@ -317,7 +316,7 @@ flag를 기준으로 포함하는 PKG_CONFIG_PATH를 설정합니다.
 
 ### run-ci.sh
 여기서 `build-emscripten.sh`를 호출해 파일을 생성하는 것으로 보입니다.
-[emscripten](https://emscripten.org/)은 LLVM컴파일러의 백엔드로, 소스를 javascript/wasm로 변환하는 프로그램이라고 합니다.
+[emscripten](https://emscripten.org/)은 LLVM컴파일러의 백엔드로, 소스를 javascript/wasm로 변환할 수 있는 프로그램이라고 합니다.
 
 ### build-emscripten.sh
 여기서 post.js를 기반으로 한 파일을 만들어 줍니다. 실제로 post.js를 보면 어떻게 사용하고 있는지 볼 수 있습니다.
@@ -329,7 +328,9 @@ flag를 기준으로 포함하는 PKG_CONFIG_PATH를 설정합니다.
 ## 긴 여정이었습니다.
 지금까지 5개의 레포를 넘어가면서 어떻게 libheif.js 파일이 생성되는지를 알아보았습니다.
 결과적으로 `heic-convert`라이브러리는 libheif.js를 기반으로 돌고 있으며, 이를 이용해 HEIF파일을 다른 형식으로 전환할 수 있다는 것을 알았습니다.
-다른 라이브러리들도 컨셉하나 잡고 파보는 것도 재미있겠다 싶은 기억이었습니다.
+별안간 지식이 늘어 기쁘네요.
+
+그럼 긴 글 읽어 주셔서 감사드리며, 이만 물러가겠습니다.
 
 # ref
 - https://cloudinary.com/guides/image-formats/heif-format-meet-the-the-next-evolution-of-jpeg
