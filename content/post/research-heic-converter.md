@@ -50,11 +50,8 @@ convert를 따라가면, 주입받은 `decode`함수로 buffer를 해석하고, 
 module.exports = (decode, encode) => {
   const convertImage = async ({ image, format, quality }) => {
     return await encode[format]({
-      width: image.width,
-      height: image.height,
-      data: image.data,
-      quality
-    });
+        // ...
+   });
   };
 
   const convert = async ({ buffer, format, quality, all }) => {
@@ -98,18 +95,7 @@ module.exports = {};
 module.exports.JPEG = ({ data, width, height, quality }) => jpegJs.encode({ data, width, height }, Math.floor(quality * 100)).data;
 
 module.exports.PNG = ({ data, width, height }) => {
-  const png = new PNG({ width, height });
-  png.data = data;
-
-  return PNG.sync.write(png, {
-    width: width,
-    height: height,
-    deflateLevel: 9,
-    deflateStrategy: 3,
-    filterType: -1,
-    colorType: 6,
-    inputHasAlpha: true
-  });
+  // ...
 };
 ```
 
@@ -123,18 +109,12 @@ module.exports.PNG = ({ data, width, height }) => {
 일단 `lib.js`부터 열어보면 될 것 같습니다.
 
 ### lib.js
-이번에는 80줄이 되는 코드라 buffer를 decode하는 로직만 발췌하였습니다. 결국 libheif를 주입 받아 decode를 하게 되는 군요
+이번에는 80줄이 되는 코드라 buffer를 decode하는 로직만 발췌하였습니다. 결국 libheif를 주입 받아 decode를 하게 되는 군요.
 ```javascript
 // ...
 module.exports = libheif => {
   const decodeBuffer = async ({ buffer, all }) => {
-    if (!isHeic(buffer)) {
-      throw new TypeError('input buffer is not a HEIC image');
-    }
-
-    // wait for module to be initialized
-    // currently it is synchronous but it might be async in the future
-    await libheif.ready;
+    // ...
 
     const decoder = new libheif.HeifDecoder();
     const data = decoder.decode(buffer);
@@ -142,10 +122,7 @@ module.exports = libheif => {
     // ...
   };
 
-  return {
-    one: async ({ buffer }) => await decodeBuffer({ buffer, all: false }),
-    all: async ({ buffer }) => await decodeBuffer({ buffer, all: true })
-  };
+  // ...
 };
 ```
 
@@ -211,17 +188,7 @@ const tarball = `${base}/libheif.tar.gz`;
 
       // ...
 
-      for await (const entry of (await getStream(tarball)).pipe(gunzip()).pipe(tar.extract())) {
-        const basedir = entry.header.name.split('/')[0];
-
-        if (entry.header.type === 'file' && ['libheif', 'libheif-wasm'].includes(basedir)) {
-          const outfile = path.resolve(root, entry.header.name);
-          console.log(`  writing "${outfile}"`);
           await fs.outputFile(outfile, await autoReadStream(entry));
-        } else {
-          await autoReadStream(entry);
-        }
-      }
 
       //...
 
@@ -233,12 +200,7 @@ const tarball = `${base}/libheif.tar.gz`;
         //...
       });
 // ...
-})().then(() => {
-  console.log(`fetched libheif ${version}`);
-}).catch(err => {
-  console.error(`failed to fetch libheif ${version}\n`, err);
-  process.exitCode = 1;
-});
+})
 //...
 ```
 
@@ -322,7 +284,7 @@ flag를 기준으로 포함하는 PKG_CONFIG_PATH를 설정합니다.
 여기서 post.js를 기반으로 한 파일을 만들어 줍니다. 실제로 post.js를 보면 어떻게 사용하고 있는지 볼 수 있습니다.
 
 ### 정리
-차례로 dependency를 설치, 설정하고 `build-emscripten.sh`에서 emscripten을 이용해 libheif.js를 생성합니다.
+차례로 dependency를 설치 및 설정하고 `build-emscripten.sh`에서 emscripten을 이용해 libheif.js를 생성합니다.
 
 # 정리하기
 ## 긴 여정이었습니다.
