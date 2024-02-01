@@ -4,7 +4,7 @@ date: 2024-01-25T18:36:44+09:00
 draft: false
 
 categories:
-- 회고
+- experience
 tags:
 - 이미지처리
 - Node
