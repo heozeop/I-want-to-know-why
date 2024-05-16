@@ -16,6 +16,8 @@ keywords:
 1. node에서 배치잡을 돌리고 싶다.
 1. child_process, cluster, worker_thread 비교
 1. io intensive + cpu intensive일 때의 비교
+1. child_process 쓸거
+    1. 함수별 사용 시점 정리
 
 # node에서 배치잡을 돌리고 싶다.
 ## 왜와이
