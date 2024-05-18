@@ -1,5 +1,5 @@
 ---
-title: "노드에서 배치잡 돌리기(feat. thead, multi thread)"
+title: "노드에서 배치잡 돌리기(feat. child_process, cluster, worker_threads)"
 date: 2024-05-16T20:30:55+09:00
 draft: false
 
