@@ -1,7 +1,8 @@
 baseURL: "https://heozeop.github.io/"
 title: Crispy bLog
-paginate: 5
-theme: PaperMod
+pagination:
+  pagerSize: 5
+theme: ["PaperMod"]
 
 enableRobotsTXT: true
 buildDrafts: false
