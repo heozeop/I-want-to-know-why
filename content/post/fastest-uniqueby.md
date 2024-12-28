@@ -1,5 +1,5 @@
 ---
-title: "100만개 item를 가장 빠르게 필터링하는 unique by를 만들어 보자"
+title: "100만개 item을 가장 빠르게 필터링하는 unique by를 만들어 보자"
 date: 2024-12-25T23:10:42+09:00
 draft: false
 
