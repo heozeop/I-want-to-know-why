@@ -4,7 +4,7 @@ date: 2024-12-25T23:10:42+09:00
 draft: false
 
 categories:
-- nodej
+- nodejs
 tags:
 - nodejs
 keywords:
