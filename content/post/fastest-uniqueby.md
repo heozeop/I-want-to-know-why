@@ -64,8 +64,10 @@ interface Data {
 
 #### 모니터링
 - 메모리와 cpu 사용량
+
     prometheus, grafana를 app과 함께 docker compose로 띄워 기본적인 사용량을 추적하였습니다.
 - 시간
+
     직접 함수의 실행 시간을 측정하는 함수를 작성했습니다.
 
 #### 실행 배경
@@ -123,19 +125,24 @@ nestjs를 이용해 엔드포인트를 직접 호출하는 것으로 실행하�
 
 ### 진행중 만난 이슈
 #### 데이터 생성
-1. 한번에 저장하는 건 불가했다.
+1. 한번에 저장하는 건 불가
+
     한번에 100만개 데이터를 생성하려고 최초에는 writeFileSync를 이용해 저장하려고 했습니다. 하지만 `JSON.stringify` 함수에서 `RangeError`가 발생([ref][1])해 writable stream을 열어서 데이터를 저장하는 방법으로 처리하였습니다.
 
 #### 모니터링 과정
 1. grafana 대시보드의 잘못된 선정
+
     최초에는 이름만 보고 node-exporter를 사용하려 했습니다. 하지만 제 목적은 nodejs process의 사용량만을 측정하는 것이기 때문에 nodejs application report를 사용해야 했죠. 대시보드가 잘못되었다는 것을 판단하는데 10분 정도 걸렸던 것 같습니다.
 
 #### 코드
 1. data를 json 파일로 바로 읽을 수 없음
+
     typescript 옵션 중 `resolveJsonModule`을 이용해 `data.json` 파일을 직접 참조하려 했습니다. 하지만 import할 때도 size 제한이 있었고([ref][1]) 이를 해결하고자 readable stream을 열어서 파일을 참조하였습니다.
 1. data를 읽는데 시간이 오래 걸림
+
     데이터 파일이 거의 700MB가 되다보니 요청마다 읽는 것은 무리라고 생각하게 되었습니다. 이에 대한 해결책으로 nestjs의 `OnModuleInit` 인터페이스를 controller 에서 구현해 미리 로딩해서 가지고 있게 만들었습니다.
 1. http timeout이 발생함.
+
     실험을 진행하는 과정에서 nestjs의 설정인지, docker의 설정인지, insomnia의 설정인지 timeout 오류가 발생했습니다. `server.settimeout(0)`으로는 해결이 안되길래 일단 큰 문제가 아니라고 생각해 넘겼습니다.
 
 ### 결과
