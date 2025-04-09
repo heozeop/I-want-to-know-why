@@ -52,7 +52,7 @@ keywords:
 시간과 흥미라는 자원을 고려해 내린 결정이었습니다.
 
 결정 직후 디스코드 화면 ui를 참고해 가볍게 db와 스펙을 설계하였습니다.
-![chat_example_1_db](/chat_example_1_db.png)
+![chat_example_1_db](https://blog.heozeop.kr/chat_example_1_db.png)
 
 만들어 놓고 나니 채팅보다 기타 스펙이 엄청 커지게 되었습니다.
 다행이도 향상심을 기반 삼아 진행을 할 수 있었습니다.
