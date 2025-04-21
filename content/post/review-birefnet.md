@@ -32,7 +32,7 @@ keywords:
 분리된 localization module과 reconsturction module을 사용해 높은 해상도의 이미지 DIS를 진행한다.
 
 ### 구조
-![BiRefNet구조](images/birefnet구조.png)
+![BiRefNet구조](./images/birefnet구조.png)
 
 ### Localization Module
 - 위치를 지정하기 위한 semeantic representation 얻기
@@ -53,7 +53,7 @@ keywords:
     1. Multi-stage supoervision 수행 (중간 예측 loss)
     1. decoder 출력
 ### Bilateral Reference
-![Biliateral Reference](images/BilateralReference.png)
+![Biliateral Reference](./images/BilateralReference.png)
 - Bliateral reference 제안
     - 배경
         - DIS에서 HR 이미지의 경우, 기존 연구를 따라 encoder-decorder 구조를 이미지 down-sampling 후 up-sampling하는 경우가 많았음
