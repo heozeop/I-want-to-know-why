@@ -37,7 +37,7 @@ keywords:
 ### Localization Module
 - 위치를 지정하기 위한 semeantic representation 얻기
     - N x 3 x H x W shape를 가진 이미지 input을 사용
-    - 단계 별로 resolution을 $\{\frac{H}{k}, \frac{W}{k}\}(k = 4, 8, 16, 32)$로 만들어 feature를 끄집어 내고, 1x1 컨볼루션 레이어를 통한 측면 연결을 디코더로 넣는다.
+    - 단계 별로 resolution을 $\\{\frac{H}{k}, \frac{W}{k}\\}(k = 4, 8, 16, 32)$로 만들어 feature를 끄집어 내고, 1x1 컨볼루션 레이어를 통한 측면 연결을 디코더로 넣는다.
     - 마지막 인코더 블록에서 stack & concatenate 되고 결합되어 encoder로 들어간다.
     - encoder output은 classification module로 입력되어 global average pooling layer와 fully connected layer를 거쳐 카테고리에 대한 분류를 수행한다.
     - 큰 객체의 특징을 포괄할 수 있도록 receptive fields를 확장하고 높은 정밀 도를 위해 local feature에 집중하도록 ASPP 모듈을 이용해서 multi-context fusion을 진행한다.    
