@@ -20,7 +20,7 @@ params:
   keywords: [Blog, Portfolio, Develop, Back-end, Front-end, Life]
   author: Crispy
   # author: ["Me", "You"] # multiple authors
-  images: ["static/images/프로필 이미지.jpeg"]
+  images: ["images/프로필 이미지.jpeg"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
