@@ -98,6 +98,7 @@ BCE만 사용하면 오히려 디테일을 잡는데 악영향을 주기에 hybr
 - average pooling layer
 - ASPP
 - fusion 
+- supervision
 
 ### 다회독 하기
 - 이 논문
